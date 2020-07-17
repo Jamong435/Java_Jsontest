@@ -20,6 +20,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainActivity extends AppCompatActivity {
 
 
+    //json파씽해서 1~10위까지 보여주는거
+
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     String baseUrl = "http://www.kobis.or.kr";

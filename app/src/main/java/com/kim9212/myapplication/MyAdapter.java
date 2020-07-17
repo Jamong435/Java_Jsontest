@@ -47,6 +47,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             tvMovieNm=itemView.findViewById(R.id.tv_movieNm);
             tvOpenDt=itemView.findViewById(R.id.tv_openDt);
 
+
+
         }
         public void setItem(Map<String, Object> item){
 
@@ -54,6 +56,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             tvRank.setText(item.get("rank").toString());
             tvMovieNm.setText(item.get("movieNm").toString());
             tvOpenDt.setText(item.get("openDt").toString());
+
+
+
+
+
+
+
 
         }
     }
