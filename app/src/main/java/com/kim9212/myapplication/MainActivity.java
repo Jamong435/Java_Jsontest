@@ -6,6 +6,8 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -21,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     String baseUrl = "http://www.kobis.or.kr";
-    String API_KEY = "b2fcdd211f6519d04f4f4586e36a746c";
+    String API_KEY = "5b132c9adc9fe91bafd1ccb30ab882db";
     Retrofit retrofit;
 
     @Override
@@ -38,7 +40,17 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         RetrofitInterface retrofitInterface= retrofit.create(RetrofitInterface.class);
 
-        retrofitInterface.getBoxOffice(API_KEY,"20200319").enqueue(new Callback<Map<String, Object>>() {
+        long now= System.currentTimeMillis();
+        Date mDate= new Date((now)+(1000*60*60*24*-1));
+        SimpleDateFormat simpleDate= new SimpleDateFormat("yyyyMMdd");
+        String gettime=simpleDate.format(mDate);
+
+
+
+
+
+
+        retrofitInterface.getBoxOffice(API_KEY,""+gettime).enqueue(new Callback<Map<String, Object>>() {
             @Override
             public void onResponse(Call<Map<String, Object>> call, Response<Map<String, Object>> response) {
 
