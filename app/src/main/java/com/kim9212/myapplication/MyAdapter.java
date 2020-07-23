@@ -13,11 +13,11 @@ import java.util.Map;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
+    private ArrayList<Map<String, Object>> items= new ArrayList<Map<String, Object>>();
 
-    private ArrayList<Map<String, Object>> items = new ArrayList<Map<String, Object>>();
 
-    public MyAdapter(ArrayList<Map<String, Object>> items) {
-        this.items = items;
+    public MyAdapter(ArrayList<Map<String, Object>> resultList){
+        this.items=resultList;
     }
 
     @NonNull
@@ -47,8 +47,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             tvMovieNm=itemView.findViewById(R.id.tv_movieNm);
             tvOpenDt=itemView.findViewById(R.id.tv_openDt);
 
-
-
         }
         public void setItem(Map<String, Object> item){
 
@@ -56,13 +54,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             tvRank.setText(item.get("rank").toString());
             tvMovieNm.setText(item.get("movieNm").toString());
             tvOpenDt.setText(item.get("openDt").toString());
-
-
-
-
-
-
-
 
         }
     }

@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.recyclerview_item);
 
         recyclerView=findViewById(R.id.rv_recyclerview);
 
@@ -42,17 +42,13 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         RetrofitInterface retrofitInterface= retrofit.create(RetrofitInterface.class);
 
+        //현재 시간 구해오기
         long now= System.currentTimeMillis();
         Date mDate= new Date((now)+(1000*60*60*24*-1));
         SimpleDateFormat simpleDate= new SimpleDateFormat("yyyyMMdd");
         String gettime=simpleDate.format(mDate);
 
-
-
-
-
-
-        retrofitInterface.getBoxOffice(API_KEY,""+gettime).enqueue(new Callback<Map<String, Object>>() {
+        retrofitInterface.getBoxOffice(API_KEY,"20200319").enqueue(new Callback<Map<String, Object>>() {
             @Override
             public void onResponse(Call<Map<String, Object>> call, Response<Map<String, Object>> response) {
 
@@ -75,5 +71,3 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }// MainActivity class..
-
-
